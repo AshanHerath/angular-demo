@@ -1,1 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.top-bar{
+  position: absolute;
+  background-color: rgb(53, 53, 53);
+}
+
+.top-bar-outer {
+  display: flex;
+  justify-content: space-between;
+}
+.top-left, .top-right {
+  display: flex;
+  align-items: center;
+}
+.top-left p, .top-right p {
+  margin: 0;
+  padding: 10px;
+  color: #fff;
+}
+
+.btn a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn a:hover{
+  text-decoration: none;
+  color: gray;
+}
+
+
+
+.login{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100%;
+  display: none;
+}
+
+.form-signin{
+  position: relative;
+  z-index: 1000;
+  width: 400px;
+  height: wrap;
+  background-color: #fff;
+  padding: 50px;
+}
+
+.form-floating{
+  margin-top: 20px;
+}
+
+.login-row{
+  width: 100vw;
+  height: 100vh;
+}
+
+.close-icon{
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  font-size: 15px;
+  background-color: red;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+
