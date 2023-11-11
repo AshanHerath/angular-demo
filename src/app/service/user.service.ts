@@ -19,7 +19,14 @@ export class UserService {
         const user = userCredential.user;
         newUser.uid = user?.uid;
 
-        this.firestore.collection('users').add(newUser);
+        this.firestore.collection('users').doc(newUser.uid).set(newUser)
+          .then(() => {
+            observer.next(newUser);
+            observer.complete();
+          })
+          .catch((error) => {
+            observer.error(error);
+          });
       }).catch((error) => {
         observer.error(error);
       });
