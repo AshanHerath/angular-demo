@@ -51,7 +51,18 @@ export class AppComponent {
   logIn() {
     console.log(this.loginForm.value);
 
-    
+    const email = this.loginForm.get('email')?.value;
+    const password = this.loginForm.get('password')?.value;
+
+    console.log(email, password);
+
+    this.userService.userLogin(email, password)
+      .then(user => {
+        console.log('User logged in successfully', user);
+      }).catch(error => {
+        console.log('Login failed', error);
+    })
+
   }
 
   register() {
@@ -67,10 +78,16 @@ export class AppComponent {
         password: password
       };
 
-      this.userService.newUserRegister(newUser).then(response => {
-        console.log('User added successfully');
-      }).catch(error => {
-        console.log(error);
+      this.userService.newUserRegister(newUser).subscribe({
+        next: (response) => {
+          console.log('User added successfully');
+        },
+        error: (error) => {
+          console.log(error);
+        },
+        complete: () => {
+          // This block will be executed when the Observable completes (optional)
+        }
       });
     } else {
       console.log('Passwords do not match');
