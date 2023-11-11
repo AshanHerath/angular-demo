@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "./service/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
   isLoginDisplayed: any = 'none';
   isRegisterDisplayed: any = 'none';
 
-  constructor(private userService: UserService) {
+  constructor(private router:Router ,private userService: UserService) {
   }
 
   toggleDisplay(check:any) {
@@ -59,6 +60,7 @@ export class AppComponent {
     this.userService.userLogin(email, password)
       .then(user => {
         console.log('User logged in successfully', user);
+
       }).catch(error => {
         console.log('Login failed', error);
     })

@@ -7,10 +7,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment.development";
+import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
